@@ -8,11 +8,12 @@ const nav = (state = {
 			3: null,
 			4: null
 		}
-	}
+	},
+	current: '0'
 }, action) => {
-	let data = {
-		'DEFAULT': state
+	switch(action.type){
+		default:
+			return state;
 	}
-	return data[action.type || 'DEFAULT'];
 }
 export default nav;
