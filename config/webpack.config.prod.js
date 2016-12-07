@@ -125,6 +125,10 @@ module.exports = {
 			// use the "style" loader inside the async code so CSS from them won't be
 			// in the main CSS file.
 			{
+				test: /\.less$/,
+				loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
+			},
+			{
 				test: /\.css$/,
 				// "?-autoprefixer" disables autoprefixer in css-loader itself:
 				// https://github.com/webpack/css-loader/issues/281
@@ -168,9 +172,6 @@ module.exports = {
 	// We use PostCSS for autoprefixing only.
 	postcss: function() {
 		return [
-			px2rem({
-				remUnit: 75
-			}),
 			autoprefixer({
 				browsers: [
 					'>1%',

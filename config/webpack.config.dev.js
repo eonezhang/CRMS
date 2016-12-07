@@ -121,6 +121,10 @@ module.exports = {
 			// "style" loader turns CSS into JS modules that inject <style> tags.
 			// In production, we use a plugin to extract that CSS to a file, but
 			// in development "style" loader enables hot editing of CSS.
+            {
+                test: /\.less$/,
+                loader: 'style-loader!css-loader!less-loader'
+            },
 			{
 				test: /\.css$/,
 				loader: 'style!css?importLoaders=1!postcss'
@@ -157,9 +161,6 @@ module.exports = {
 	// We use PostCSS for autoprefixing only.
 	postcss: function() {
 		return [
-			px2rem({
-				remUnit: 75
-			}),
 			autoprefixer({
 				browsers: [
 					'>1%',
