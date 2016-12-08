@@ -1,3 +1,10 @@
+body{
+  background-color: #f2f2f2;
+}
+
+/*-------------
+  -----Nav-----
+  -------------*/
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -32,6 +39,7 @@
 .ant-layout-topaside .ant-layout-header {
   background: #404040;
   height: 64px;
+  line-height: 64px;
 }
 
 .ant-layout-topaside .ant-layout-logo {
@@ -52,7 +60,7 @@
 }
 
 .ant-layout-topaside .ant-layout-breadcrumb {
-  margin: 7px 0 -17px 24px;
+  margin: 7px 0 7px 24px;
 }
 
 .ant-layout-topaside .ant-layout-container {
@@ -62,8 +70,23 @@
   padding: 24px 0;
   overflow: hidden;
 }
-
 .ant-layout-topaside .ant-layout-sider {
   width: 224px;
   float: left;
+}
+
+/*-------------
+  ---Content---
+  -------------*/
+.contentwrap {
+  width: 1200px;
+  margin: 0 auto;
+  height: 500px;
+  background: #fff;
+}
+.contentwrap h2{
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
 }

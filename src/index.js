@@ -6,8 +6,8 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { AppContainer } from 'react-hot-loader';
 import configureStore from './store/configureStore';
 import Root from './containers/Root';
-import 'styles/index.css';
 import 'antd/dist/antd.css';
+import 'styles/index.css';
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
