@@ -1,18 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 const mapStateToProps = state => {
-	let { nav: { current, navigator } } = state;
-	console.log(current,navigator)
+	let { nav: { current, navigator }, routing:{locationBeforeTransitions} } = state;
 	return {
-		name: navigator.swiper[current.tt]?navigator.swiper[current.tt][current.swiper]:navigator.title[current.tt]
+		name: navigator.swiper[current.tt]?navigator.swiper[current.tt][current.swiper]:navigator.title[current.tt],
+		localpath:locationBeforeTransitions.pathname
 	};
-}
-const mapDispatchToProps = dispatch => {
-	return {
-		//changeTitle: bindActionCreators(changeTitle, dispatch)
-	}
 }
 
 class Content extends Component {
@@ -20,11 +14,11 @@ class Content extends Component {
 		super(props);
 	}
 	render() {
-		let { name } = this.props;
+		let { name, localpath } = this.props;
+		console.log(localpath)
 		return (
 			<div className='contentwrap'>
 				<h2>{name}</h2>
-				<div>{}</div>
 			</div>
 		);
 	}
@@ -34,6 +28,5 @@ Content.PropTypes = {
 	name: PropTypes.string
 }
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+	mapStateToProps
 )(Content);

@@ -49,7 +49,7 @@ class Nav extends React.Component {
 					<Menu theme="dark" mode="horizontal" defaultSelectedKeys={['0']} style={{lineHeight: '64px'}} onSelect={this.titleSelect} selectedKeys={[tt]}>
 						<Menu.Item key='0'><Link to='/'>首页</Link></Menu.Item>
 						<Menu.Item key='1'><Link to='trial'>试用管理</Link></Menu.Item>
-						<Menu.Item key='2'><Link to='menber'>会员管理</Link></Menu.Item>
+						<Menu.Item key='2'><Link to='member'>会员管理</Link></Menu.Item>
 						<Menu.Item key='3'><Link to='order'>订单管理</Link></Menu.Item>
 						<Menu.Item key='4'><Link to='tag'>标签管理</Link></Menu.Item>
 					</Menu>
