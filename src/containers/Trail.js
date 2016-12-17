@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 function mapStateToProps(state) {
 	let { nav: { current: { swiper } }, routing: {locationBeforeTransitions} } = state;

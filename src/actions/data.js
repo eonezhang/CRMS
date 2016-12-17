@@ -1,0 +1,1 @@
+export const getNewdata = createAction('GET_NEWDATA', value => value);
