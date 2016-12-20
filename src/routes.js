@@ -10,8 +10,7 @@ export default (
 	<Route path="/" component={App}>
 		<IndexRoute component={Content}/>
 		<Route path='trial' component={Trail}/>
-		<Route path='member' component={Member}>
-		</Route>
+		<Route path='member' component={Member}/>
 		<Route path='order' component={Content}/>
 		<Route path='tag' component={Content}/>
 	</Route>

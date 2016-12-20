@@ -2,6 +2,7 @@ import { routerReducer as routing } from 'react-router-redux'
 import { combineReducers } from 'redux'
 import nav from './nav'
 import data from './data'
+import member from './member'
 
 const base = (state = {
     ajax: 'http://stest.udianhuo.com/crms/api'
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
     base,
     nav,
     data,
+    member,
     routing
 });
 
