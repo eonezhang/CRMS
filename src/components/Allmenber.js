@@ -126,7 +126,7 @@ export default class Allmenber extends React.Component {
 						</Select>
 					</Col>
 				</Row>
-				<Table loading={data.data?false:true} columns={columns} rowSelection={rowSelection} dataSource={data.data} />			
+				<Table loading={data.data?false:true} columns={columns} rowSelection={rowSelection} dataSource={data.data} scroll={{ x: 1200 }} />			
 			</div>
 		)
 	}

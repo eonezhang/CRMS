@@ -1,10 +1,6 @@
 const member = (state = {
-	review: {
-
-	},
-	all: {
-
-	}
+	review: {},
+	all: {}
 }, action) => {
 	let { type, payload: data } = action;
 	switch (type) {

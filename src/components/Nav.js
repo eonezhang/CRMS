@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { changeTitle, changeSwiper } from 'actions'
 import { Menu, Breadcrumb, Icon, Row, Col } from 'antd';
+import request from 'superagent';
 
 const mapStateToProps = state => {
 	return {
@@ -39,11 +40,14 @@ class Nav extends React.Component {
 			}
 		}
 	}
+	componentWillReceiveProps(nextProps) {
+		console.log('in')
+	}
 	titleSelect = ({ key }) => {
 		let { changeTitle, changeSwiper, nav: { navigator: navigator} } = this.props;
 		changeTitle(key);
 		changeSwiper(navigator.swiper[key]?'0':null);
-		
+
 	}
 	swiperSelect = ({ key }) => {
 		let { changeSwiper } = this.props;
