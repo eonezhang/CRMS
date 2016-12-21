@@ -9,13 +9,13 @@ const member = (state = {
 	let { type, payload: data } = action;
 	switch (type) {
 		case 'GET_MEMBER_REVIEW':
-			console.log(data)
 			return Object.assign({}, state, {
 				review:data
 			});
 		case 'GET_MEMBER_ALL':
-			console.log(data)
-			return state;
+			return Object.assign({}, state, {
+				all:data
+			});
 		default:
 			return state;
 	}

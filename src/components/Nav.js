@@ -20,10 +20,30 @@ class Nav extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+	componentWillMount() {
+		let { location, changeTitle, changeSwiper } = this.props;
+		if(location.pathname){
+			switch(location.pathname){
+				case '/trial':
+				changeTitle('1');changeSwiper('0');
+				break;
+				case '/member':
+				changeTitle('2');changeSwiper('0');
+				break;
+				case '/order':
+				changeTitle('3');changeSwiper(null);
+				break;
+				case '/tag':
+				changeTitle('4');changeSwiper(null);
+				break;
+			}
+		}
+	}
 	titleSelect = ({ key }) => {
 		let { changeTitle, changeSwiper, nav: { navigator: navigator} } = this.props;
 		changeTitle(key);
 		changeSwiper(navigator.swiper[key]?'0':null);
+		
 	}
 	swiperSelect = ({ key }) => {
 		let { changeSwiper } = this.props;

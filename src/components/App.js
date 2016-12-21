@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import Nav from './Nav';
 
-const App = ({ children }) =>
+const App = ({ children, location }) =>
 	<div className="App">
-		<Nav />
+		<Nav location={location}/>
 		{children}
 	</div>
 

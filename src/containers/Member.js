@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import request from 'superagent';
-import { Spin } from 'antd';
+//import { Spin } from 'antd';
 import Review from 'components/Review';
+import All from 'components/Allmenber';
 import { getMemberReview, getMemberAll } from 'actions/data'
 
 function mapStateToProps(state) {
@@ -18,12 +19,10 @@ export class Member extends React.Component {
 		super(props);
 	}
 	componentDidMount() {
-		let { url, cur, getMemberReview } = this.props;
+		let { url, cur, getMemberReview, getMemberAll } = this.props;
 		console.log(cur)
 		request.post(`${url}/youzan/member/query`)
 		.send({
-			'currentpage': 0,
-			'pagesize': 20,
 			'querytype': 1
 		})
 		.end((err, res)=>{
@@ -38,19 +37,35 @@ export class Member extends React.Component {
 					console.log(data.msg)
 				}
 			}
+		});
+		request.post(`${url}/youzan/member/query`)
+		.send({
+			'currentpage': 0,
+			'pagesize': 20,
+			'querytype': 10
+		})
+		.end((err, res)=>{
+			if(err){
+				console.log(err);
+			}else{
+				let data = res.body;
+				if(data.code === '1000'){
+					console.log(data);
+					getMemberAll({data:data.data,total:data.total});
+				}else{
+					console.log(data.msg)
+				}
+			}
 		})
 	}
 	componentWillReceiveProps(nextProps) {
 		console.log(nextProps)
 	}
 	render() {
-		let { data, cur } = this.props;
+		let { data, cur, url } = this.props;
 		return (
 		<div className='contentwrap'>
-		{/*<div className='laodingmask'>
-			<Spin size="large" tip='刷新中...' />
-		</div>*/}			
-			{cur==='0'?<Review data={data.review} />:<div>all</div>}
+			{cur==='0'?<Review data={data.review} ajax={url} />:<All data={data.all} ajax={url} />}
 		</div>
 		);
 	}

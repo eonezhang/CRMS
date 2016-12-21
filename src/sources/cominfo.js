@@ -1,0 +1,93 @@
+export const profession = [{
+	label: '厨师长',
+	value: '0'
+}, {
+	label: '普通厨师',
+	value: '1'
+}, {
+	label: '餐厅老板',
+	value: '2'
+}, {
+	label: '餐厅采购',
+	value: '3'
+}, {
+	label: '调味品经销商/批发商',
+	value: '4'
+}, {
+	label: '其他(餐饮从业者、美食爱好者)',
+	value: '9'
+}];
+export const shoptype = [{
+	label: '中餐店',
+	value: '0'
+}, {
+	label: '面馆',
+	value: '1'
+}, {
+	label: '炒饭/盖浇饭',
+	value: '2'
+}, {
+	label: '粉店（米粉/酸辣粉）',
+	value: '3'
+}, {
+	label: '土豆粉店',
+	value: '4'
+}, {
+	label: '麻辣烫店',
+	value: '5'
+}, {
+	label: '熟食（凉菜卤菜店）',
+	value: '6'
+}, {
+	label: '烤鱼店',
+	value: '7'
+}, {
+	label: '冒菜店',
+	value: '8'
+}, {
+	label: '汤锅店',
+	value: '9'
+}, {
+	label: '热锅串串店',
+	value: '10'
+}, {
+	label: '冷锅串串店',
+	value: '11'
+}, {
+	label: '川渝火锅店',
+	value: '12'
+}, {
+	label: '北方火锅店',
+	value: '13'
+}, {
+	label: '小涮锅店',
+	value: '14'
+}, {
+	label: '特色风味火锅店（鱼、鸡、虾火锅）',
+	value: '15'
+}, {
+	label: '烧烤/烤肉店',
+	value: '16'
+}, {
+	label: '麻辣香锅店',
+	value: '17'
+}, {
+	label: '干锅店',
+	value: '18'
+}, {
+	label: '包子/早点店',
+	value: '19'
+}, {
+	label: '炒龙虾店',
+	value: '20'
+}];
+export const averagespend = [{
+	label: '0-50',
+	value: '0'
+}, {
+	label: '50-100',
+	value: '1'
+}, {
+	label: '100以上',
+	value: '2'
+}]
