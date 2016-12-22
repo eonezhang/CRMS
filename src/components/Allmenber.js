@@ -27,7 +27,7 @@ export default class Allmenber extends React.Component {
 	render() {
 		let { data } = this.props;
 		let { showDetail, cur } = this.state;
-		console.log(this.props);
+		//console.log(this.props);
 		const rowSelection = {
 			onChange: this.onChange,
 			onSelect: this.onSelect,
@@ -52,14 +52,14 @@ export default class Allmenber extends React.Component {
 					<Column title='手机号' dataIndex='mobile' width={120} key='mobile'/>
 					<Column title='姓名' dataIndex='truename' width={120} key='truename'/>
 					<Column title='餐厅名称' dataIndex='restaurantname' width={120} key='restaurantname'/>
-					<Column title='创建日期' dataIndex='createtime' width={75} key='createtime' render={text => <div>{`${moment(text).format('YYYY-MM-DD')}\r\n${moment(text).format('HH:mm:ss')}`}</div>}/>
+					<Column title='创建日期' dataIndex='createtime' width={90} key='createtime' render={text => <div>{moment(text).format('YYYY-MM-DD')}<br />{moment(text).format('HH:mm:ss')}</div>}/>
 					<Column title='职位' dataIndex='position' width={120} key='position' render={(text) => {
 							let label = profession.find(i => i.value === text);
 							return <div>{label?label.label:text}</div>
 						}}/>
 					<Column title='业态' dataIndex='mode' width={120} key='mode' render={(text) => {
 							let label = shoptype.find(i => i.value === text);
-							return <div>{label.label}</div>
+							return <div>{label?label.label:text}</div>
 						}}/>
 					<Column title='人均消费' dataIndex='price' width={120} key='price' render={(text) => {
 							let label = averagespend.find(i => i.value === text);
@@ -69,6 +69,8 @@ export default class Allmenber extends React.Component {
 					<Column title='状态' dataIndex='state' width={120} key='state' render={(text) => {
 							let label = '';
 							switch(text){
+								case 0:
+								label = '未提交';break;
 								case 1:
 								label = '待审核';break;
 								case 2:
@@ -81,7 +83,7 @@ export default class Allmenber extends React.Component {
 					<Column title='操作' width={120} key='operation' render={(text, record, index) =>
 							<div><a onClick={()=>this.showDetail(index, record)}>查看</a></div>}/>
 				</Table>
-				<Detailtag show={showDetail} change={()=>this.setState({showDetail:!this.state.showDetail})} data={cur}/>
+				<Detailtag show={showDetail} change={()=>this.setState({showDetail:!this.state.showDetail})} data={cur} style={{ top: 20 }}/>
 			</div>
 		)
 	}

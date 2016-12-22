@@ -55,7 +55,7 @@ body{
 }
 
 /*-------------
-  ---Content---
+     Content
   -------------*/
 .contentwrap {
   width: 100%;
@@ -73,4 +73,22 @@ body{
   height: 100%;
   padding: 100px 0;
   text-align: center;
+}
+
+/*-------------
+    Detailtag
+  -------------*/
+.detailcontent .ant-menu-inline{
+  border: none;
+}
+.detailcontent .detaiItem{
+  margin: 20px 0;
+}
+.detailcontent .detailPic{
+  height: 200px;
+  overflow: hidden;
+}
+.detailcontent .detailPic img{
+  width: 100%;
+  height: 100%;
 }
