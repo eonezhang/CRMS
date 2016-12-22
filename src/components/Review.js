@@ -29,23 +29,14 @@ export default class Review extends React.Component {
 		console.log(selected, selectedRows, changeRows);
 	}
 	showDetail(index, record){
-		console.log('showDetail',index)
-		let { data } = this.state;
 		this.setState({
 			showDetail: true,
 			cur: record
 		})
 	}
-	getpass(index){
-		console.log('getpass',index)
-	}
-	getredet(index){
-		console.log('getredet',index)
-	}
 	render() {
-		let { data } = this.props;
+		let { data, pass, reject } = this.props;
 		let { showDetail, cur } = this.state;
-		console.log(showDetail)
 		const rowSelection = {
 			onChange: this.onChange,
 			onSelect: this.onSelect,
@@ -57,7 +48,7 @@ export default class Review extends React.Component {
 				<Column title='手机号' dataIndex='mobile' width={120} key='mobile'/>
 				<Column title='姓名' dataIndex='truename' width={120} key='truename'/>
 				<Column title='餐厅名称' dataIndex='restaurantname' width={120} key='restaurantname'/>
-				<Column title='创建日期' dataIndex='createtime' width='75' key='createtime' 	render={text => <div>{`${moment(text).format('YYYY-MM-DD')}\r\n${moment(text).format('HH:mm:ss')}`}</div>}/>
+				<Column title='创建日期' dataIndex='createtime' width={75} key='createtime' 	render={text => <div>{`${moment(text).format('YYYY-MM-DD')}\r\n${moment(text).format('HH:mm:ss')}`}</div>}/>
 				<Column title='职位' dataIndex='position' width={120} key='position' 	render={(text) => {
 						let label = profession.find(i => i.value === text);
 						return <div>{label?label.label:text}</div>
@@ -84,7 +75,7 @@ export default class Review extends React.Component {
 						return <div>{label}</div>
 					}}/>
 				<Column title='操作' width={120} key='operation' render={(text, record, index) =>
-						<div><a onClick={()=>this.showDetail(index, record)}>查看</a> | <a onClick={()=>this.getpass(index)}>通过</a> | <a onClick={()=>this.getredet(index)}>拒接</a></div>}/>
+						<div><a onClick={()=>this.showDetail(index, record)}>查看</a> | <a onClick={()=>pass(index, record)}>通过</a> | <a onClick={()=>reject(index, record)}>拒接</a></div>}/>
 			</Table>
 			<Detailtag show={showDetail} change={()=>this.setState({showDetail:!this.state.showDetail})} data={cur}/>
 		</div>
